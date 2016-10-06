@@ -59,6 +59,7 @@
         <source-file src="android/plugin/src/main/java/com/marianhello/cordova/PermissionHelper.java" target-dir="src/com/marianhello/cordova" />
         <source-file src="android/plugin/src/main/java/org/apache/commons/io/Charsets.java" target-dir="src/apache/commons/io" />
         <source-file src="android/plugin/src/main/java/org/apache/commons/io/input/ReversedLinesFileReader.java" target-dir="src/apache/commons/io/input" />
+        <source-file src="android/plugin/src/main/java/in/foodtrack/app/AlarmWakeUp.java" target-dir="src/in/foodtrack/app" />
         <resource-file src="android/plugin/src/main/res/xml/authenticator.xml" target="res/xml/authenticator.xml" />
         <resource-file src="android/plugin/src/main/res/xml/syncadapter.xml" target="res/xml/syncadapter.xml" />
         <resource-file src="android/plugin/src/main/res/xml/authenticator.xml" target="res/xml/authenticator.xml" />
