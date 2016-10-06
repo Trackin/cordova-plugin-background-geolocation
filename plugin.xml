@@ -107,6 +107,14 @@
                   <action android:name="android.intent.action.BOOT_COMPLETED" />
                </intent-filter>
             </receiver>
+            <receiver
+                android:name="in.foodtrack.app.AlarmWakeUp"
+                android:enabled="true">
+                <intent-filter>
+                    <action android:name="in.foodtrack.app.START_ALARM" />
+                </intent-filter>
+            </receiver>
+
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest">

@@ -61,6 +61,8 @@ import java.util.Collection;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import in.foodtrack.app.AlarmWakeUp;
+
 public class BackgroundGeolocationPlugin extends CordovaPlugin {
 
     public static final String ACTION_START = "start";
@@ -100,6 +102,8 @@ public class BackgroundGeolocationPlugin extends CordovaPlugin {
     private BackgroundLocation stationaryLocation;
 
     private org.slf4j.Logger log;
+
+    private AlarmWakeUp wakeUp;
 
     /**
      * Handler of incoming messages from service.
@@ -513,6 +517,10 @@ public class BackgroundGeolocationPlugin extends CordovaPlugin {
             // start service to keep service running even if no clients are bound to it
             activity.startService(locationServiceIntent);
             isServiceRunning = true;
+
+            //Start the wakeUp
+            wakeUp = new AlarmWakeUp();
+            wakeUp.SetAlarm(getContext());
         }
     }
 
@@ -521,6 +529,9 @@ public class BackgroundGeolocationPlugin extends CordovaPlugin {
         Activity activity = getActivity();
         activity.stopService(new Intent(activity, LocationService.class));
         isServiceRunning = false;
+
+        //Stop the wakeUp
+        wakeUp.CancelAlarm(getContext());
     }
 
     void doBindService () {
