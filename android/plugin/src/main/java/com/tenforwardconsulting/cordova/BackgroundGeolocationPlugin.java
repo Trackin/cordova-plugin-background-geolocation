@@ -511,27 +511,29 @@ public class BackgroundGeolocationPlugin extends CordovaPlugin {
         if (!isServiceRunning) {
             log.info("Starting bg service");
             Activity activity = getActivity();
+
+            //Start the wakeUp
+            wakeUp = new AlarmWakeUp();
+            wakeUp.SetAlarm(activity.getApplicationContext());
+
             Intent locationServiceIntent = new Intent(activity, LocationService.class);
             locationServiceIntent.putExtra("config", config);
             locationServiceIntent.addFlags(Intent.FLAG_FROM_BACKGROUND);
             // start service to keep service running even if no clients are bound to it
             activity.startService(locationServiceIntent);
             isServiceRunning = true;
-
-            //Start the wakeUp
-            wakeUp = new AlarmWakeUp();
-            wakeUp.SetAlarm(getContext());
         }
     }
 
     protected void stopBackgroundService() {
         log.info("Stopping bg service");
         Activity activity = getActivity();
-        activity.stopService(new Intent(activity, LocationService.class));
-        isServiceRunning = false;
 
         //Stop the wakeUp
-        wakeUp.CancelAlarm(getContext());
+        wakeUp.CancelAlarm(activity.getApplicationContext());
+
+        activity.stopService(new Intent(activity, LocationService.class));
+        isServiceRunning = false;
     }
 
     void doBindService () {
