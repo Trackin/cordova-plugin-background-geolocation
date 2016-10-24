@@ -26,7 +26,7 @@ public class AlarmWakeUp extends BroadcastReceiver
      AlarmManager am=(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
      Intent i = new Intent("in.foodtrack.app.START_ALARM");
      PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
-     am.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000 * 60 * 15, pi); // Millisec * Second * Minute
+     am.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 1000 * 60 * 5, pi); // Millisec * Second * Minute
  }
 
  public void CancelAlarm(Context context)
