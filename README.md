@@ -83,6 +83,10 @@ You will need to ensure that you have installed the following items through the 
 | Google Repository          | 24      |
 
 
+#### Backwards Compatibility
+Please note that as of Cordova Android 6.0.0 icons are by default in mipmap/ directory not drawable/ directory, so this plugin will have a build issue on < 6.0.0 Cordova builds, you will need to update Authenticator.xml to drawable directory from mipmap directory to work on older versions.
+
+
 ## Quick Example
 
 ```javascript
@@ -216,7 +220,7 @@ Platform: Android >= 6, iOS >= 8.0
 Show app settings to allow change of app location permissions.
 
 ### showLocationSettings()
-Platform: iOS, Android
+Platform: iOS < 10.0, Android
 
 Show system settings to allow configuration of current location sources.
 
