@@ -19,8 +19,8 @@
 
     <!-- android -->
     <platform name="android">
-        <preference name="ICON" default="@mipmap/icon" />
-        <preference name="SMALL_ICON" default="@mipmap/icon" />
+        <preference name="ICON" default="@drawable/icon" />
+        <preference name="SMALL_ICON" default="@drawable/icon" />
         <preference name="ACCOUNT_LABEL" default="@string/app_name" />
         <preference name="ACCOUNT_TYPE" default="$PACKAGE_NAME.account" />
         <preference name="CONTENT_AUTHORITY" default="$PACKAGE_NAME" />
